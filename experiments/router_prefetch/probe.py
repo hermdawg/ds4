@@ -164,6 +164,15 @@ def calibrate(confidence, correct, target, minimum):
     return float(c[acceptable[-1]]) if len(acceptable) else None
 
 
+def summarize_prompts(events, threshold):
+    results = {}
+    for name in sorted({event[0] for event in events}):
+        rows = [event for event in events if event[0] == name]
+        results[name] = summarize(np.concatenate([r[1] for r in rows]),
+                                  np.concatenate([r[2] for r in rows]), threshold)
+    return results
+
+
 def cache_presence(selected, capacity):
     """Snapshot a shadow global LRU before each layer, not ds4's actual cache.
 
@@ -285,8 +294,7 @@ def analyze(args):
             if threshold is not None:
                 result["calibration"] = summarize(*splits["calibration"], threshold)
                 result["test"] = summarize(*splits["test"], threshold)
-                result["test_by_prompt"] = {
-                    name: summarize(c, y, threshold) for name, c, y in events[method, scope, "test"]}
+                result["test_by_prompt"] = summarize_prompts(events[method, scope, "test"], threshold)
             output["results"].append(result)
     write_json(args.output, output)
     print(json.dumps({"validation": output["validation"], "results": output["results"]}, indent=2))

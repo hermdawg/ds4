@@ -1,0 +1,733 @@
+{
+  "manifest": {
+    "binary": "ds4",
+    "model": "DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf",
+    "tokens_requested": 128,
+    "cache_target": "8GB",
+    "context": 8192,
+    "prefill_chunk": 1024,
+    "cases": [
+      {
+        "id": "cal_math",
+        "split": "calibration",
+        "prompt": "Derive the formula for the sum of the first n squares. Explain the intermediate algebra and give an example with n = 5.",
+        "positions": 127,
+        "elapsed_seconds": 28.772
+      },
+      {
+        "id": "cal_code",
+        "split": "calibration",
+        "prompt": "Write a Python function that merges two sorted lists without sorting the combined list. Explain its invariant and complexity.",
+        "positions": 127,
+        "elapsed_seconds": 28.715
+      },
+      {
+        "id": "cal_prose",
+        "split": "calibration",
+        "prompt": "Describe the preparations for opening a small bakery on a rainy morning. Focus on concrete actions and sensory details.",
+        "positions": 127,
+        "elapsed_seconds": 30.53
+      },
+      {
+        "id": "cal_science",
+        "split": "calibration",
+        "prompt": "Explain why seasons occur on Earth. Distinguish the effects of axial tilt, daylight duration, and distance from the Sun.",
+        "positions": 127,
+        "elapsed_seconds": 28.169
+      },
+      {
+        "id": "test_math",
+        "split": "test",
+        "prompt": "Explain why the square root of 2 is irrational. Give a proof by contradiction and explain exactly where the contradiction arises.",
+        "positions": 127,
+        "elapsed_seconds": 28.238
+      },
+      {
+        "id": "test_code",
+        "split": "test",
+        "prompt": "Write a Python function that detects a cycle in a singly linked list using two pointers. Explain why the algorithm works.",
+        "positions": 127,
+        "elapsed_seconds": 29.364
+      },
+      {
+        "id": "test_prose",
+        "split": "test",
+        "prompt": "Write a scene in which a traveler misses the last train and meets the station caretaker. Use natural dialogue and physical details.",
+        "positions": 127,
+        "elapsed_seconds": 29.754
+      },
+      {
+        "id": "test_science",
+        "split": "test",
+        "prompt": "Explain how a refrigerator moves heat from its cold interior to a warmer room. Describe the role of each main component.",
+        "positions": 127,
+        "elapsed_seconds": 29.012
+      }
+    ],
+    "warning": "Diagnostic synchronization makes these timings unsuitable for benchmarking.",
+    "binary_source_commit": "9139e2ae58a41503968a500f36f75895c1ba63fc",
+    "model_sha256": "ca22ae2f838e14077c22bc1c1417b71b45b5e5a3687bd96c2ac6e17fdb6261c0",
+    "machine": "Apple M5 Max, 64 GiB unified memory",
+    "date": "2026-09-15"
+  },
+  "settings": {
+    "target_precision": 0.99,
+    "minimum_calibration_predictions": 200,
+    "shadow_lru_slots": 701,
+    "warmup_positions_discarded": 16
+  },
+  "validation": {
+    "sets": 40640,
+    "exact_sets": 40640,
+    "max_logit_error": 6.29425048828125e-05
+  },
+  "results": [
+    {
+      "method": "pre_attention",
+      "scope": "all",
+      "confidence_threshold": 5.2872514724731445,
+      "top6_recall_test": 0.707057057057057,
+      "unfiltered_test": {
+        "opportunities": 17760,
+        "issued": 17760,
+        "correct": 16969,
+        "precision": 0.9554617117117117,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.9523280556184921
+      },
+      "calibration": {
+        "opportunities": 17760,
+        "issued": 8509,
+        "correct": 8424,
+        "precision": 0.9900105770360794,
+        "issue_fraction": 0.47911036036036037,
+        "binomial_wilson_lower_95": 0.9876653961186863
+      },
+      "test": {
+        "opportunities": 17760,
+        "issued": 8702,
+        "correct": 8619,
+        "precision": 0.9904619627671799,
+        "issue_fraction": 0.4899774774774775,
+        "binomial_wilson_lower_95": 0.9881924119851462
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4440,
+          "issued": 2209,
+          "correct": 2191,
+          "precision": 0.9918515165233137,
+          "issue_fraction": 0.49752252252252255,
+          "binomial_wilson_lower_95": 0.9871558693577361
+        },
+        "test_math": {
+          "opportunities": 4440,
+          "issued": 2016,
+          "correct": 2005,
+          "precision": 0.9945436507936508,
+          "issue_fraction": 0.4540540540540541,
+          "binomial_wilson_lower_95": 0.9902556743396828
+        },
+        "test_prose": {
+          "opportunities": 4440,
+          "issued": 2451,
+          "correct": 2420,
+          "precision": 0.9873521011831905,
+          "issue_fraction": 0.552027027027027,
+          "binomial_wilson_lower_95": 0.9821035629205019
+        },
+        "test_science": {
+          "opportunities": 4440,
+          "issued": 2026,
+          "correct": 2003,
+          "precision": 0.9886475814412635,
+          "issue_fraction": 0.4563063063063063,
+          "binomial_wilson_lower_95": 0.9830222191237401
+        }
+      }
+    },
+    {
+      "method": "pre_attention",
+      "scope": "shadow_lru_miss",
+      "confidence_threshold": 8.236912727355957,
+      "top6_recall_test": 0.707057057057057,
+      "unfiltered_test": {
+        "opportunities": 17277,
+        "issued": 17277,
+        "correct": 12625,
+        "precision": 0.7307402905597037,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.7240752761612106
+      },
+      "calibration": {
+        "opportunities": 17312,
+        "issued": 727,
+        "correct": 720,
+        "precision": 0.9903713892709766,
+        "issue_fraction": 0.041993992606284655,
+        "binomial_wilson_lower_95": 0.9802595564327515
+      },
+      "test": {
+        "opportunities": 17277,
+        "issued": 796,
+        "correct": 790,
+        "precision": 0.992462311557789,
+        "issue_fraction": 0.046072813567170225,
+        "binomial_wilson_lower_95": 0.9836532875770435
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4367,
+          "issued": 183,
+          "correct": 183,
+          "precision": 1.0,
+          "issue_fraction": 0.041905198076482714,
+          "binomial_wilson_lower_95": 0.9794400084170792
+        },
+        "test_math": {
+          "opportunities": 4322,
+          "issued": 209,
+          "correct": 208,
+          "precision": 0.9952153110047847,
+          "issue_fraction": 0.04835724201758445,
+          "binomial_wilson_lower_95": 0.9733999976226243
+        },
+        "test_prose": {
+          "opportunities": 4292,
+          "issued": 198,
+          "correct": 196,
+          "precision": 0.98989898989899,
+          "issue_fraction": 0.04613233923578751,
+          "binomial_wilson_lower_95": 0.9639248516853243
+        },
+        "test_science": {
+          "opportunities": 4296,
+          "issued": 206,
+          "correct": 203,
+          "precision": 0.9854368932038835,
+          "issue_fraction": 0.04795158286778398,
+          "binomial_wilson_lower_95": 0.9580654163929894
+        }
+      }
+    },
+    {
+      "method": "ahead1",
+      "scope": "all",
+      "confidence_threshold": 3.742964506149292,
+      "top6_recall_test": 0.7279373123123123,
+      "unfiltered_test": {
+        "opportunities": 17760,
+        "issued": 17760,
+        "correct": 17386,
+        "precision": 0.9789414414414415,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.9767239220616765
+      },
+      "calibration": {
+        "opportunities": 17760,
+        "issued": 14249,
+        "correct": 14107,
+        "precision": 0.9900343883781318,
+        "issue_fraction": 0.8023085585585585,
+        "binomial_wilson_lower_95": 0.9882662717979264
+      },
+      "test": {
+        "opportunities": 17760,
+        "issued": 14292,
+        "correct": 14192,
+        "precision": 0.993003078645396,
+        "issue_fraction": 0.8047297297297298,
+        "binomial_wilson_lower_95": 0.9914978143523449
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4440,
+          "issued": 3516,
+          "correct": 3489,
+          "precision": 0.992320819112628,
+          "issue_fraction": 0.7918918918918919,
+          "binomial_wilson_lower_95": 0.9888500536478798
+        },
+        "test_math": {
+          "opportunities": 4440,
+          "issued": 3458,
+          "correct": 3435,
+          "precision": 0.9933487565066512,
+          "issue_fraction": 0.7788288288288289,
+          "binomial_wilson_lower_95": 0.9900388433557329
+        },
+        "test_prose": {
+          "opportunities": 4440,
+          "issued": 3752,
+          "correct": 3732,
+          "precision": 0.9946695095948828,
+          "issue_fraction": 0.8450450450450451,
+          "binomial_wilson_lower_95": 0.9917805147074172
+        },
+        "test_science": {
+          "opportunities": 4440,
+          "issued": 3566,
+          "correct": 3536,
+          "precision": 0.9915872125630959,
+          "issue_fraction": 0.8031531531531532,
+          "binomial_wilson_lower_95": 0.9880157626956405
+        }
+      }
+    },
+    {
+      "method": "ahead1",
+      "scope": "shadow_lru_miss",
+      "confidence_threshold": 4.485757350921631,
+      "top6_recall_test": 0.7279373123123123,
+      "unfiltered_test": {
+        "opportunities": 17033,
+        "issued": 17033,
+        "correct": 12870,
+        "precision": 0.7555920859508014,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.7490812986042683
+      },
+      "calibration": {
+        "opportunities": 16976,
+        "issued": 3731,
+        "correct": 3694,
+        "precision": 0.9900830876440633,
+        "issue_fraction": 0.2197808671065033,
+        "binomial_wilson_lower_95": 0.9863614150878948
+      },
+      "test": {
+        "opportunities": 17033,
+        "issued": 3832,
+        "correct": 3797,
+        "precision": 0.990866388308977,
+        "issue_fraction": 0.22497504843539012,
+        "binomial_wilson_lower_95": 0.9873243771494393
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4335,
+          "issued": 903,
+          "correct": 895,
+          "precision": 0.991140642303433,
+          "issue_fraction": 0.2083044982698962,
+          "binomial_wilson_lower_95": 0.9826161338468855
+        },
+        "test_math": {
+          "opportunities": 4236,
+          "issued": 959,
+          "correct": 952,
+          "precision": 0.9927007299270073,
+          "issue_fraction": 0.22639282341831918,
+          "binomial_wilson_lower_95": 0.985010180951185
+        },
+        "test_prose": {
+          "opportunities": 4201,
+          "issued": 933,
+          "correct": 925,
+          "precision": 0.9914255091103966,
+          "issue_fraction": 0.2220899785765294,
+          "binomial_wilson_lower_95": 0.9831720090982202
+        },
+        "test_science": {
+          "opportunities": 4261,
+          "issued": 1037,
+          "correct": 1025,
+          "precision": 0.9884281581485053,
+          "issue_fraction": 0.2433701009152781,
+          "binomial_wilson_lower_95": 0.9798828179500196
+        }
+      }
+    },
+    {
+      "method": "ahead2",
+      "scope": "all",
+      "confidence_threshold": 4.161522388458252,
+      "top6_recall_test": 0.6661036036036037,
+      "unfiltered_test": {
+        "opportunities": 17760,
+        "issued": 17760,
+        "correct": 17019,
+        "precision": 0.958277027027027,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.9552358110155859
+      },
+      "calibration": {
+        "opportunities": 17760,
+        "issued": 12240,
+        "correct": 12118,
+        "precision": 0.9900326797385621,
+        "issue_fraction": 0.6891891891891891,
+        "binomial_wilson_lower_95": 0.9881126731506271
+      },
+      "test": {
+        "opportunities": 17760,
+        "issued": 12306,
+        "correct": 12175,
+        "precision": 0.9893547862831139,
+        "issue_fraction": 0.6929054054054054,
+        "binomial_wilson_lower_95": 0.9873827507063524
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4440,
+          "issued": 3061,
+          "correct": 3010,
+          "precision": 0.9833387781770663,
+          "issue_fraction": 0.6894144144144144,
+          "binomial_wilson_lower_95": 0.9781610737468209
+        },
+        "test_math": {
+          "opportunities": 4440,
+          "issued": 2906,
+          "correct": 2876,
+          "precision": 0.9896765313145217,
+          "issue_fraction": 0.6545045045045045,
+          "binomial_wilson_lower_95": 0.9853010254246997
+        },
+        "test_prose": {
+          "opportunities": 4440,
+          "issued": 3294,
+          "correct": 3271,
+          "precision": 0.9930176077717061,
+          "issue_fraction": 0.7418918918918919,
+          "binomial_wilson_lower_95": 0.989543943930353
+        },
+        "test_science": {
+          "opportunities": 4440,
+          "issued": 3045,
+          "correct": 3018,
+          "precision": 0.9911330049261083,
+          "issue_fraction": 0.6858108108108109,
+          "binomial_wilson_lower_95": 0.9871295125213926
+        }
+      }
+    },
+    {
+      "method": "ahead2",
+      "scope": "shadow_lru_miss",
+      "confidence_threshold": 5.731841087341309,
+      "top6_recall_test": 0.6661036036036037,
+      "unfiltered_test": {
+        "opportunities": 17146,
+        "issued": 17146,
+        "correct": 11764,
+        "precision": 0.6861075469497259,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.6791202180192463
+      },
+      "calibration": {
+        "opportunities": 17132,
+        "issued": 2128,
+        "correct": 2107,
+        "precision": 0.9901315789473685,
+        "issue_fraction": 0.12421200093392482,
+        "binomial_wilson_lower_95": 0.9849603965531111
+      },
+      "test": {
+        "opportunities": 17146,
+        "issued": 2200,
+        "correct": 2172,
+        "precision": 0.9872727272727273,
+        "issue_fraction": 0.12830980986819082,
+        "binomial_wilson_lower_95": 0.9816669445566318
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4350,
+          "issued": 511,
+          "correct": 498,
+          "precision": 0.974559686888454,
+          "issue_fraction": 0.11747126436781609,
+          "binomial_wilson_lower_95": 0.9569642433961952
+        },
+        "test_math": {
+          "opportunities": 4252,
+          "issued": 551,
+          "correct": 547,
+          "precision": 0.9927404718693285,
+          "issue_fraction": 0.12958607714016934,
+          "binomial_wilson_lower_95": 0.9814845466276649
+        },
+        "test_prose": {
+          "opportunities": 4253,
+          "issued": 524,
+          "correct": 518,
+          "precision": 0.9885496183206107,
+          "issue_fraction": 0.12320714789560311,
+          "binomial_wilson_lower_95": 0.9752463132037786
+        },
+        "test_science": {
+          "opportunities": 4291,
+          "issued": 614,
+          "correct": 609,
+          "precision": 0.99185667752443,
+          "issue_fraction": 0.14309018876718713,
+          "binomial_wilson_lower_95": 0.981080282493175
+        }
+      }
+    },
+    {
+      "method": "ahead1_renorm",
+      "scope": "all",
+      "confidence_threshold": 3.618454933166504,
+      "top6_recall_test": 0.7281813063063063,
+      "unfiltered_test": {
+        "opportunities": 17760,
+        "issued": 17760,
+        "correct": 17377,
+        "precision": 0.9784346846846846,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.9761926089922942
+      },
+      "calibration": {
+        "opportunities": 17760,
+        "issued": 14655,
+        "correct": 14509,
+        "precision": 0.9900375298532924,
+        "issue_fraction": 0.825168918918919,
+        "binomial_wilson_lower_95": 0.9882962816067551
+      },
+      "test": {
+        "opportunities": 17760,
+        "issued": 14757,
+        "correct": 14654,
+        "precision": 0.9930202615707799,
+        "issue_fraction": 0.8309121621621621,
+        "binomial_wilson_lower_95": 0.9915427929530853
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4440,
+          "issued": 3650,
+          "correct": 3619,
+          "precision": 0.9915068493150685,
+          "issue_fraction": 0.8220720720720721,
+          "binomial_wilson_lower_95": 0.9879700972376783
+        },
+        "test_math": {
+          "opportunities": 4440,
+          "issued": 3573,
+          "correct": 3551,
+          "precision": 0.9938427092079485,
+          "issue_fraction": 0.8047297297297298,
+          "binomial_wilson_lower_95": 0.9906944326773498
+        },
+        "test_prose": {
+          "opportunities": 4440,
+          "issued": 3864,
+          "correct": 3844,
+          "precision": 0.994824016563147,
+          "issue_fraction": 0.8702702702702703,
+          "binomial_wilson_lower_95": 0.9920183525942472
+        },
+        "test_science": {
+          "opportunities": 4440,
+          "issued": 3670,
+          "correct": 3640,
+          "precision": 0.9918256130790191,
+          "issue_fraction": 0.8265765765765766,
+          "binomial_wilson_lower_95": 0.9883546711569898
+        }
+      }
+    },
+    {
+      "method": "ahead1_renorm",
+      "scope": "shadow_lru_miss",
+      "confidence_threshold": 4.592331409454346,
+      "top6_recall_test": 0.7281813063063063,
+      "unfiltered_test": {
+        "opportunities": 17033,
+        "issued": 17033,
+        "correct": 12876,
+        "precision": 0.755944343333529,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.7494366246678911
+      },
+      "calibration": {
+        "opportunities": 16986,
+        "issued": 3619,
+        "correct": 3583,
+        "precision": 0.9900525006907985,
+        "issue_fraction": 0.21305781231602497,
+        "binomial_wilson_lower_95": 0.98625982606371
+      },
+      "test": {
+        "opportunities": 17033,
+        "issued": 3725,
+        "correct": 3694,
+        "precision": 0.9916778523489933,
+        "issue_fraction": 0.21869312511008043,
+        "binomial_wilson_lower_95": 0.9882118130700813
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4336,
+          "issued": 891,
+          "correct": 884,
+          "precision": 0.9921436588103255,
+          "issue_fraction": 0.2054889298892989,
+          "binomial_wilson_lower_95": 0.9838726065705617
+        },
+        "test_math": {
+          "opportunities": 4236,
+          "issued": 912,
+          "correct": 905,
+          "precision": 0.9923245614035088,
+          "issue_fraction": 0.21529745042492918,
+          "binomial_wilson_lower_95": 0.9842419214879804
+        },
+        "test_prose": {
+          "opportunities": 4200,
+          "issued": 912,
+          "correct": 904,
+          "precision": 0.9912280701754386,
+          "issue_fraction": 0.21714285714285714,
+          "binomial_wilson_lower_95": 0.9827867145829557
+        },
+        "test_science": {
+          "opportunities": 4261,
+          "issued": 1010,
+          "correct": 1001,
+          "precision": 0.9910891089108911,
+          "issue_fraction": 0.2370335601971368,
+          "binomial_wilson_lower_95": 0.9831517722882533
+        }
+      }
+    },
+    {
+      "method": "ahead2_renorm",
+      "scope": "all",
+      "confidence_threshold": 4.243470191955566,
+      "top6_recall_test": 0.6660848348348349,
+      "unfiltered_test": {
+        "opportunities": 17760,
+        "issued": 17760,
+        "correct": 17022,
+        "precision": 0.9584459459459459,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.9554103886582188
+      },
+      "calibration": {
+        "opportunities": 17760,
+        "issued": 12435,
+        "correct": 12311,
+        "precision": 0.9900281463610776,
+        "issue_fraction": 0.700168918918919,
+        "binomial_wilson_lower_95": 0.9881241633750995
+      },
+      "test": {
+        "opportunities": 17760,
+        "issued": 12506,
+        "correct": 12382,
+        "precision": 0.9900847593155285,
+        "issue_fraction": 0.7041666666666667,
+        "binomial_wilson_lower_95": 0.9881915156215153
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4440,
+          "issued": 3116,
+          "correct": 3066,
+          "precision": 0.9839537869062901,
+          "issue_fraction": 0.7018018018018019,
+          "binomial_wilson_lower_95": 0.978908654170319
+        },
+        "test_math": {
+          "opportunities": 4440,
+          "issued": 2931,
+          "correct": 2906,
+          "precision": 0.9914704878880928,
+          "issue_fraction": 0.6601351351351351,
+          "binomial_wilson_lower_95": 0.9874385359372982
+        },
+        "test_prose": {
+          "opportunities": 4440,
+          "issued": 3345,
+          "correct": 3322,
+          "precision": 0.9931240657698057,
+          "issue_fraction": 0.7533783783783784,
+          "binomial_wilson_lower_95": 0.989703033879189
+        },
+        "test_science": {
+          "opportunities": 4440,
+          "issued": 3114,
+          "correct": 3088,
+          "precision": 0.9916506101477199,
+          "issue_fraction": 0.7013513513513514,
+          "binomial_wilson_lower_95": 0.9877939692550141
+        }
+      }
+    },
+    {
+      "method": "ahead2_renorm",
+      "scope": "shadow_lru_miss",
+      "confidence_threshold": 5.489053249359131,
+      "top6_recall_test": 0.6660848348348349,
+      "unfiltered_test": {
+        "opportunities": 17154,
+        "issued": 17154,
+        "correct": 11782,
+        "precision": 0.6868368893552524,
+        "issue_fraction": 1.0,
+        "binomial_wilson_lower_95": 0.679855421438228
+      },
+      "calibration": {
+        "opportunities": 17134,
+        "issued": 2431,
+        "correct": 2407,
+        "precision": 0.9901275195392842,
+        "issue_fraction": 0.1418816388467375,
+        "binomial_wilson_lower_95": 0.9853517399359997
+      },
+      "test": {
+        "opportunities": 17154,
+        "issued": 2531,
+        "correct": 2493,
+        "precision": 0.9849861714737258,
+        "issue_fraction": 0.14754576192141775,
+        "binomial_wilson_lower_95": 0.979460421537767
+      },
+      "test_by_prompt": {
+        "test_code": {
+          "opportunities": 4353,
+          "issued": 610,
+          "correct": 593,
+          "precision": 0.9721311475409836,
+          "issue_fraction": 0.14013324144268322,
+          "binomial_wilson_lower_95": 0.9558245772271199
+        },
+        "test_math": {
+          "opportunities": 4251,
+          "issued": 637,
+          "correct": 630,
+          "precision": 0.989010989010989,
+          "issue_fraction": 0.14984709480122324,
+          "binomial_wilson_lower_95": 0.977492386525025
+        },
+        "test_prose": {
+          "opportunities": 4259,
+          "issued": 605,
+          "correct": 597,
+          "precision": 0.9867768595041322,
+          "issue_fraction": 0.14205212491195116,
+          "binomial_wilson_lower_95": 0.9741263927541595
+        },
+        "test_science": {
+          "opportunities": 4291,
+          "issued": 679,
+          "correct": 673,
+          "precision": 0.9911634756995582,
+          "issue_fraction": 0.15823817292006526,
+          "binomial_wilson_lower_95": 0.9808566495982922
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Prediction quality only; no prefetch I/O or speedup measured.",
+    "LRU cache is a shadow simulation, not ds4's production policy or macOS page cache.",
+    "A few short prompts cannot establish near-perfect precision on general workloads.",
+    "Binomial bounds ignore correlation between positions and layers; they are descriptive only.",
+    "Confidence is a score margin, not a calibrated probability."
+  ]
+}

@@ -96,3 +96,62 @@ cache, give demand reads priority, and measure whether useful reads complete
 before demand. Compare complete generation time, predictor overhead, physical
 SSD traffic, cache displacement and output/logit parity against the unmodified
 path. Additional reads are not automatically bad if they exploit idle time.
+
+## First measurement: September 15, 2026
+
+On a 64 GiB M5 Max, eight prompts each produced 127 recorded decode positions.
+The offline router reconstruction matched all **40,640 learned-router sets**.
+The maximum absolute logit difference from Metal was `6.2943e-5`. A separate
+16-token smoke run produced byte-identical stdout with and without diagnostics;
+all 600 learned-router sets in that smoke trace also reconstructed exactly.
+The five analysis unit checks pass.
+
+The model process used about 12.91 GiB resident memory at one observation.
+Offline analysis took 9.85 seconds and peaked at 1.215 GiB resident memory.
+These are feasibility measurements, not prefetch performance measurements.
+Compressed traces occupy about 1.9 GiB on disk. The four calibration and four
+test prompts are checked in; activation traces stay local under ignored `gguf/`.
+
+The main comparison uses the shadow-cache-miss scope: at most one predicted
+expert per layer/position, and only if it is absent from the simulated cache.
+Each method's cutoff was selected for at least 99% calibration precision.
+
+| Method | Correct / issued on test | Test precision | Fraction of eligible opportunities issued |
+| --- | ---: | ---: | ---: |
+| Before attention | 790 / 796 | 99.25% | 4.61% |
+| One layer ahead | 3,797 / 3,832 | 99.09% | 22.50% |
+| Two layers ahead | 2,172 / 2,200 | 98.73% | 12.83% |
+| One layer ahead, target normalization | 3,694 / 3,725 | 99.17% | 21.87% |
+| Two layers ahead, target normalization | 2,493 / 2,531 | 98.50% | 14.75% |
+
+An eligible opportunity has at least one predicted top-six expert absent from
+the shadow cache. These percentages are not the fraction of disk bytes hidden
+or the fraction of actual production-cache misses covered.
+
+A second, stricter calibration target of 99.9%, still requiring at least 200
+calibration predictions, gave these results:
+
+| Method | Correct / issued on test | Fraction of eligible opportunities issued |
+| --- | ---: | ---: |
+| Before attention | 265 / 267 | 1.55% |
+| One layer ahead | 551 / 551 | 3.23% |
+| One layer ahead, target normalization | 447 / 447 | 2.62% |
+| Either two-layer method | No qualifying calibration cutoff | — |
+
+Zero mistakes in 551 predictions does not establish perfect accuracy. This
+second target is exploratory, and selecting a method after seeing these test
+results means any follow-up should use fresh test prompts. The before-attention
+method's strict cutoff illustrates the danger: its test precision remained only
+99.25% despite the 99.9% calibration target.
+
+The simplest one-layer-ahead method is the first candidate for further work.
+It needs no trained auxiliary model. The strict cutoff offers a small set of
+very reliable predictions; the less strict cutoff offers wider coverage with
+about 1% wasted predicted reads on this sample. Neither establishes a speedup.
+Next, evaluate against the actual cache on fresh prompts and measure whether
+reads arrive before demand without delaying other work. All actual expert
+selection must remain unchanged. Skipping or substituting experts is deferred.
+
+Detailed outputs: [99% target](2026-09-15-results.json) and
+[99.9% target](2026-09-15-results-strict.json). To reproduce the stricter analysis,
+add `--precision 0.999` and use a separate output filename.

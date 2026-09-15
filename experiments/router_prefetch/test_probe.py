@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from probe import calibrate, cache_presence, summarize
+from probe import calibrate, cache_presence, summarize, summarize_prompts
 
 
 class ProbeTests(unittest.TestCase):
@@ -27,6 +27,15 @@ class ProbeTests(unittest.TestCase):
         self.assertEqual(result["issued"], 0)
         self.assertIsNone(result["precision"])
         self.assertIsNone(calibrate(np.array([]), np.array([], dtype=bool), .99, 200))
+
+    def test_prompt_summary_includes_all_layers(self):
+        events = [("math", np.array([.9, .8]), np.array([True, False])),
+                  ("math", np.array([.95]), np.array([True])),
+                  ("code", np.array([.99]), np.array([False]))]
+        results = summarize_prompts(events, .5)
+        self.assertEqual(results["math"]["issued"], 3)
+        self.assertEqual(results["math"]["correct"], 2)
+        self.assertEqual(results["code"]["issued"], 1)
 
     def test_cache_keys_include_layer_and_snapshot_precedes_current_loads(self):
         selected = np.tile(np.arange(6), (1, 43, 1))
