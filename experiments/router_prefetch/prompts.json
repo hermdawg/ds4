@@ -1,0 +1,10 @@
+[
+  {"id":"cal_math","split":"calibration","prompt":"Derive the formula for the sum of the first n squares. Explain the intermediate algebra and give an example with n = 5."},
+  {"id":"cal_code","split":"calibration","prompt":"Write a Python function that merges two sorted lists without sorting the combined list. Explain its invariant and complexity."},
+  {"id":"cal_prose","split":"calibration","prompt":"Describe the preparations for opening a small bakery on a rainy morning. Focus on concrete actions and sensory details."},
+  {"id":"cal_science","split":"calibration","prompt":"Explain why seasons occur on Earth. Distinguish the effects of axial tilt, daylight duration, and distance from the Sun."},
+  {"id":"test_math","split":"test","prompt":"Explain why the square root of 2 is irrational. Give a proof by contradiction and explain exactly where the contradiction arises."},
+  {"id":"test_code","split":"test","prompt":"Write a Python function that detects a cycle in a singly linked list using two pointers. Explain why the algorithm works."},
+  {"id":"test_prose","split":"test","prompt":"Write a scene in which a traveler misses the last train and meets the station caretaker. Use natural dialogue and physical details."},
+  {"id":"test_science","split":"test","prompt":"Explain how a refrigerator moves heat from its cold interior to a warmer room. Describe the role of each main component."}
+]
