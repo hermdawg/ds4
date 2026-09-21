@@ -1,0 +1,18 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/simulate.py",
+    "--split",
+    "heldout",
+    "--config",
+    "research/cost-aware-spec-20260921/candidate-config.json",
+    "--output",
+    "research/cost-aware-spec-20260921/raw/heldout-h1.csv",
+    "--trace"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:59:12.277838+00:00",
+  "elapsed_seconds": 2.514487541047856,
+  "exit_code": 0,
+  "timed_out": false
+}

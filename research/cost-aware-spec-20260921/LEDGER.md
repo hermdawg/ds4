@@ -58,3 +58,9 @@ Next bounded step: calibrate decay and exploration interval on the frozen tuning
 ## 20:58 UTC: tuning configuration frozen
 
 The 16-point tuning grid selected decay 0.95, exploration every 32 committed tokens, and a 3% improvement margin, with context buckets enabled. `candidate-config.json` records this choice before held-out execution. All simulated costs, domains and seeds remain as preregistered. This is calibration of H1, not proof of a deployable policy. Next: held-out paired comparisons and diagnostic stress cases; do not retune on their results.
+
+## 20:59-21:01 UTC: H1 held-out negative result, next bounded experiment
+
+H1 held-out resident simulation: 1.1883x ordinary vs 1.2064x for current default, about a 1.5% geometric regression against default. This falsifies a robust resident gain in the primary assumed workload suite. No production integration. See raw heldout-h1 CSVs, stage traces and summary.
+
+H2 is preregistered in EXPERIMENTS.md: reduce exploration to a useful subset of caps, motivated by the existing cap-3 seed-batch threshold and H1 TUNING results. Try masks {0..5}, {0,3,5}, {0,5}, tune on original tuning split only, commit config before evaluation. Any re-use of original held-out workloads is labeled exploratory. Fresh seeds test stochastic sensitivity. A broader frozen stress matrix tests flat drafting costs, context transitions, noise, budget length, verification costs and acceptance transitions.

@@ -1,0 +1,155 @@
+{
+  "evidence_class": "SYNTHETIC: all costs and acceptance probabilities are assumptions",
+  "config": {
+    "decay": 0.95,
+    "probe_tokens": 32,
+    "margin": 0.03,
+    "context_buckets": true
+  },
+  "summary": [
+    {
+      "mode": "resident_seed_batch",
+      "policy": "candidate",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.1883253916371639,
+      "min_speedup": 0.9530552074338288,
+      "max_speedup": 1.6588157957846312
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "default",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.2063923049799423,
+      "min_speedup": 0.8562576105325516,
+      "max_speedup": 1.716797125653299
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "existing_cost_gate",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.1749819147925267,
+      "min_speedup": 0.761767233823201,
+      "max_speedup": 1.7412983669855255
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "fixed_1",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 0.8308126795797817,
+      "min_speedup": 0.7521307693711994,
+      "max_speedup": 0.9189515876761233
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "fixed_2",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 0.9582390097391733,
+      "min_speedup": 0.7796371200555057,
+      "max_speedup": 1.1208347699955559
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "fixed_3",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0916816738768893,
+      "min_speedup": 0.6154158661020066,
+      "max_speedup": 1.6764263176051657
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "fixed_4",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.068357262563883,
+      "min_speedup": 0.5693364247666209,
+      "max_speedup": 1.7288476380854902
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "fixed_5",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.030448588642619,
+      "min_speedup": 0.5314971219601455,
+      "max_speedup": 1.8202887597760031
+    },
+    {
+      "mode": "resident_seed_batch",
+      "policy": "ordinary",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0,
+      "min_speedup": 1.0,
+      "max_speedup": 1.0
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "candidate",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.093948020077204,
+      "min_speedup": 0.9658757640760587,
+      "max_speedup": 1.3517643112856883
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "default",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0682160002738754,
+      "min_speedup": 0.7684701087703416,
+      "max_speedup": 1.4073797161348083
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "existing_cost_gate",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0808230527161156,
+      "min_speedup": 0.7919958981829321,
+      "max_speedup": 1.364499685693397
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "fixed_1",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 0.8308126795797817,
+      "min_speedup": 0.7521307693711994,
+      "max_speedup": 0.9189515876761233
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "fixed_2",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 0.9582390097391733,
+      "min_speedup": 0.7796371200555057,
+      "max_speedup": 1.1208347699955559
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "fixed_3",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0171870661471403,
+      "min_speedup": 0.7594569284495853,
+      "max_speedup": 1.272309354111891
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "fixed_4",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0373754539326856,
+      "min_speedup": 0.7304099633705834,
+      "max_speedup": 1.3404759477175758
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "fixed_5",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.036684639803218,
+      "min_speedup": 0.6971334720734407,
+      "max_speedup": 1.4020253705686043
+    },
+    {
+      "mode": "separate_seed",
+      "policy": "ordinary",
+      "runs": 240,
+      "geometric_speedup_vs_ordinary": 1.0,
+      "min_speedup": 1.0,
+      "max_speedup": 1.0
+    }
+  ]
+}
