@@ -1,0 +1,33 @@
+{
+  "evidence_class": "REAL MODEL, ORDINARY DECODE ONLY, SSD STREAMING",
+  "model": "/Users/herman/code/open-source/ds4/gguf/DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf",
+  "model_bytes": 86720111488,
+  "source_commit": "9139e2a",
+  "contexts": [
+    256,
+    2048
+  ],
+  "output_tokens": 256,
+  "cache": "8GB",
+  "context_allocation": 4096,
+  "prefill_chunk": 256,
+  "temperature": 0,
+  "eos": "benchmark selects non-EOS argmax",
+  "warmups": 1,
+  "repeats": 3,
+  "note": "Raw continuation inputs sliced at exact token frontiers by unmodified ds4-bench. These are independent of the chat prompt suite and synthetic assumed costs. No speculative/model speedup comparison is possible.",
+  "files": {
+    "code": {
+      "path": "model-inputs/code.txt",
+      "sha256": "53b89b42be7f3a9f5141079bd2aed870cc3351fdb2acfc2ae6d4420104ff1803"
+    },
+    "prose": {
+      "path": "model-inputs/prose.txt",
+      "sha256": "55adf5bc7551c33f525c50ff068e05e3d35963953bb494feacd279f8444ade0b"
+    },
+    "structured": {
+      "path": "model-inputs/structured.txt",
+      "sha256": "baad9ce884aa3df42f6e30b9bb74ebb5e792b07b466150f745baed72256fb93c"
+    }
+  }
+}

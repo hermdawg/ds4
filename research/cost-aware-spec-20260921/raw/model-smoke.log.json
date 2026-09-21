@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/usr/bin/time",
+    "-l",
+    "./ds4-bench",
+    "-m",
+    "/Users/herman/code/open-source/ds4/gguf/DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf",
+    "--ssd-streaming",
+    "--ssd-streaming-cache-experts",
+    "8GB",
+    "--prefill-chunk",
+    "256",
+    "--ctx-start",
+    "256",
+    "--ctx-max",
+    "256",
+    "--ctx-alloc",
+    "4096",
+    "--gen-tokens",
+    "16",
+    "--prompt-file",
+    "research/cost-aware-spec-20260921/model-inputs/code.txt",
+    "--csv",
+    "research/cost-aware-spec-20260921/raw/model-smoke.csv"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:54:32.152648+00:00",
+  "elapsed_seconds": 11.909118749957997,
+  "exit_code": 0,
+  "timed_out": false
+}

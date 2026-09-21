@@ -1,0 +1,10 @@
+{
+  "command": [
+    "./tests/test_metal_moe_prefill"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:51:20.899403+00:00",
+  "elapsed_seconds": 4.487638709018938,
+  "exit_code": 0,
+  "timed_out": false
+}

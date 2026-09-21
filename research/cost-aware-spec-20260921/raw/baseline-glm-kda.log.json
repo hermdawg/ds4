@@ -1,0 +1,10 @@
+{
+  "command": [
+    "./tests/test_glm53_kda"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:51:26.261924+00:00",
+  "elapsed_seconds": 0.6001860830001533,
+  "exit_code": 0,
+  "timed_out": false
+}

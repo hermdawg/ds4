@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/test_simulate.py"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:57:30.071036+00:00",
+  "elapsed_seconds": 0.18348041700664908,
+  "exit_code": 0,
+  "timed_out": false
+}

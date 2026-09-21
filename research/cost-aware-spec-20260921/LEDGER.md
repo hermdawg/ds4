@@ -40,3 +40,17 @@ Frozen `suite.json` plus SHA-256 contains distinct coding, prose and structured 
 H1: An exponentially weighted ratio of total cycle milliseconds to committed tokens, with occasional depth exploration and context buckets, can avoid high-acceptance but expensive speculation. Compare against actual checked-in DSpark scheduling functions, including optional existing cost gates, and fixed draft caps 1-5. No acceptance or GPU code changes.
 
 Correction: initial inspection happened approximately 20:45-20:47 UTC; the earlier section's 20:51 endpoint was an estimate, not an observed timestamp. All run metadata uses actual UTC timestamps.
+
+## 20:51-20:57 UTC: H1 prototype and baseline checks
+
+Implemented research-only `policy.h` plus `bridge.c`, which calls the actual checked-in DSpark scheduler for control decisions. Backend timing/execution is outside the policy. No production sources changed. The estimator divides decayed total time by decayed committed tokens; it includes ordinary decoding, depths 1-5, periodic probes and three context buckets. It shares the current ten-token tail guard.
+
+H1 tuning result (20 seeds x six cases, each mode): geometric simulated speedup versus ordinary is 1.3621x candidate vs 1.3516x default with resident seed batching; 1.1784x vs 1.1497x with a separate seed. This is assumed-cost simulation only. The weakest candidate run was 0.9524x ordinary in the resident case, so mean gains are not a universal win. Existing optional cost gate also included (ratio threshold 1.0, four-cycle window).
+
+Passed unchanged existing tests: sampling (100k trials each for exact stochastic and point-mass proposals), CPU session bookkeeping, GPU session rollback, Qwen kernels, MoE batched/reference comparisons, Metal SSD expert eviction and GLM recurrent kernels. Logs and exact commands are in `raw/`. Research policy passed AddressSanitizer and UndefinedBehaviorSanitizer checks for ratio accounting, invalid measurements, tail limits, context buckets, reset and recovery. Independent analytical simulator tests passed, including calling the real default scheduler and checking its pauses/reset, stage sums and output bounds.
+
+Installed ordinary-only model smoke: 256-token raw code prefix, 16 generated tokens, 9.58 tok/s/request. SSD cache target 8 GiB, planned total 16.27 GiB. This is a startup smoke, not a steady-state result or speculative comparison. Frozen ordinary-only corpora and a separately labeled three-repeat suite now run serially, with memory/VM/disk/thermal snapshots and 900-second per-process timeouts.
+
+Audit caveat: `DS4_DSPARK_VERIFY_CAP` limits final proposals, but the default confidence-lazy drafting loop still iterates to the full draft block until confidence stops it. A shorter verification cap need not reduce draft-stage cost. The initial synthetic suite's depth-linear draft-cost assumption is therefore a generic hypothetical, not an exact DSpark cost model. A flat draft-cost sensitivity experiment is required before interpreting depth-selection gains.
+
+Next bounded step: calibrate decay and exploration interval on the frozen tuning split only (16 configurations). Select by mean normalized elapsed time with a penalty if a scenario mean exceeds a 5% ordinary-decode regression. Then freeze configuration before held-out evaluation. Also measure host timer/policy overhead and GPU timing-boundary overhead separately.

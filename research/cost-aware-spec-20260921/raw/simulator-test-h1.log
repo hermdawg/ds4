@@ -1,0 +1,10 @@
+test_analytical_cycle_costs (__main__.Tests.test_analytical_cycle_costs) ... ok
+test_shared_first_prefix (__main__.Tests.test_shared_first_prefix) ... ok
+test_source_default_pause_and_reset (__main__.Tests.test_source_default_pause_and_reset) ... ok
+test_source_existing_cost_gate (__main__.Tests.test_source_existing_cost_gate) ... ok
+test_total_and_output_limits (__main__.Tests.test_total_and_output_limits) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.030s
+
+OK

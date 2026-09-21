@@ -1,0 +1,10 @@
+{
+  "command": [
+    "./tests/test_metal_ssd_experts"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:51:25.459232+00:00",
+  "elapsed_seconds": 0.7186861250083894,
+  "exit_code": 0,
+  "timed_out": false
+}

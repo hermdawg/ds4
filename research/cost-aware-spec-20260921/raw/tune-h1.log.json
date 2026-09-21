@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/simulate.py",
+    "--split",
+    "tune",
+    "--output",
+    "research/cost-aware-spec-20260921/raw/tune-h1.csv",
+    "--trace"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:53:10.343461+00:00",
+  "elapsed_seconds": 1.3442500839591958,
+  "exit_code": 0,
+  "timed_out": false
+}

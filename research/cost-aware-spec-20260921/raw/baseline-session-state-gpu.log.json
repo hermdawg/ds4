@@ -1,0 +1,10 @@
+{
+  "command": [
+    "./tests/test_session_state_gpu"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:51:20.382042+00:00",
+  "elapsed_seconds": 0.44342616701032966,
+  "exit_code": 0,
+  "timed_out": false
+}
