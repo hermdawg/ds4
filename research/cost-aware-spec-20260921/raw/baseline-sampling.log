@@ -1,0 +1,5 @@
+stochastic speculative distribution: 0.6208 0.2684 0.1108
+delta speculative distribution: 0.6203 0.2703 0.1094
+sampling default: reference 81.864 ms, optimized 77.132 ms, 1.06x, checksum=16528692
+sampling top-p+min-p: reference 1175.263 ms, optimized 187.777 ms, 6.26x, checksum=31386692
+sampling tests: OK

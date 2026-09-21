@@ -1,0 +1,10 @@
+{
+  "command": [
+    "./tests/test_qwen4_kernels"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:48:41.812947+00:00",
+  "elapsed_seconds": 12.119260457984637,
+  "exit_code": 0,
+  "timed_out": false
+}

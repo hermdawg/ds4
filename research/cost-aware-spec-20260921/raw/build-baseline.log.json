@@ -1,0 +1,17 @@
+{
+  "command": [
+    "make",
+    "-j8",
+    "all",
+    "ds4_test",
+    "tests/test_session_state",
+    "tests/test_sampling",
+    "tests/test_metal_ssd_experts",
+    "tests/test_qwen4_kernels"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:47:27.304319+00:00",
+  "elapsed_seconds": 11.0998132089735,
+  "exit_code": 0,
+  "timed_out": false
+}

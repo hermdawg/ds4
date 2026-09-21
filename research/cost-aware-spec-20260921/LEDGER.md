@@ -30,3 +30,13 @@ Commands: `git status --short --branch`, `git remote -v`, `git fetch`, `git rev-
 Findings: DSpark already has acceptance windows, pauses, confidence-based backoff, optional elapsed-cost gates, and tail avoidance. Cost gates default to zero (off) explicitly to preserve schedule reproducibility. Default Metal window is four speculative cycles and minimum average acceptance is 1.5 drafts/cycle. Resident M5 seed batching has longer backoff than SSD streaming. ROCm fast-path can bypass the remainder of a request. Qwen switches between one and two speculative drafts using recent acceptance, but does not choose ordinary decode by elapsed cost; exact sampling is restricted to the shallow cycle. These are distinct policies and must not be conflated.
 
 Next: confirm model metadata; freeze fallback suite; test baseline and implement research-only policy.
+
+## 20:48-20:50 UTC: baseline build and preregistration
+
+Clean worktree `make -j8 all ds4_test tests/test_session_state tests/test_sampling tests/test_metal_ssd_experts tests/test_qwen4_kernels` passed in 11.10 s. Model `--inspect` confirms 43 layers, 256 experts/6 selected, 80.76 GiB weights. No compatible speculative support file exists. The campaign therefore uses the authorized fallback; it cannot establish model-level speculative speedups.
+
+Frozen `suite.json` plus SHA-256 contains distinct coding, prose and structured prompts, context frontiers 256 and 2048, 256 output tokens, tuning seeds 0-19 and held-out seeds 100-139. Synthetic costs/acceptance are deliberately assumed regimes, NOT measurements of those prompts. Resident seed batching and separate-seed execution will be evaluated separately. Model-based ordinary measurements, if run, remain a separate data set.
+
+H1: An exponentially weighted ratio of total cycle milliseconds to committed tokens, with occasional depth exploration and context buckets, can avoid high-acceptance but expensive speculation. Compare against actual checked-in DSpark scheduling functions, including optional existing cost gates, and fixed draft caps 1-5. No acceptance or GPU code changes.
+
+Correction: initial inspection happened approximately 20:45-20:47 UTC; the earlier section's 20:51 endpoint was an estimate, not an observed timestamp. All run metadata uses actual UTC timestamps.

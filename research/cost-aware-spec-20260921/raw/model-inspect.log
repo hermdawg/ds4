@@ -1,0 +1,18 @@
+model: DeepSeek V4 Flash
+arch:  deepseek4
+gguf:  v3, 62 metadata keys, 1328 tensors
+layers: 43
+train context: 1048576
+attention: heads=64 kv_heads=1 head_dim=512 swa=128
+indexer: heads=64 head_dim=128 top_k=512
+experts: count=256 used=6 groups=0 groups_used=0
+file size: 80.76 GiB
+tensor bytes described by GGUF: 80.76 GiB
+logical parameters: 284.33 B
+tensor types:
+  f32        492 tensors, 0.00 GiB
+  f16        359 tensors, 2.04 GiB
+  q8_0       345 tensors, 6.15 GiB
+  q2_k        43 tensors, 28.22 GiB
+  iq2_xxs     86 tensors, 44.34 GiB
+  i32          3 tensors, 0.01 GiB

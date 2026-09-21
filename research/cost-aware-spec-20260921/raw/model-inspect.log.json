@@ -1,0 +1,13 @@
+{
+  "command": [
+    "./ds4",
+    "-m",
+    "/Users/herman/code/open-source/ds4/gguf/DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-0731.gguf",
+    "--inspect"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:48:23.846227+00:00",
+  "elapsed_seconds": 0.40461495897034183,
+  "exit_code": 0,
+  "timed_out": false
+}

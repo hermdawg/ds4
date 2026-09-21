@@ -1,0 +1,15 @@
+{
+  "command": [
+    "make",
+    "-j8",
+    "tests/test_session_state_gpu",
+    "tests/test_metal_moe_prefill",
+    "tests/test_q8_prefill_variants",
+    "tests/test_glm53_kda"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:48:40.423117+00:00",
+  "elapsed_seconds": 10.339021208987106,
+  "exit_code": 0,
+  "timed_out": false
+}

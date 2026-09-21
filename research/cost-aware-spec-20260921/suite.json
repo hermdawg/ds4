@@ -1,0 +1,533 @@
+{
+  "version": 1,
+  "frozen_utc": "2026-09-21T20:50:00Z",
+  "evidence_class": "SYNTHETIC: all costs and acceptance probabilities are assumptions",
+  "model_baseline": "DeepSeek V4 Flash 0731 IQ2XXS/w2Q2K; speculative weights unavailable",
+  "sampling": {
+    "temperature": 0,
+    "top_p": 1,
+    "min_p": 0,
+    "seed": 12345
+  },
+  "fixed_depths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "simulated_execution_modes": [
+    "resident_seed_batch",
+    "separate_seed"
+  ],
+  "tuning_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "heldout_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139
+  ],
+  "stress_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239
+  ],
+  "cases": [
+    {
+      "id": "tune-code-256",
+      "split": "tune",
+      "domain": "code",
+      "context": 256,
+      "output_tokens": 256,
+      "prompt": "Write a complete C string-key hash table with insert, find, delete and a test main. Output only C code.",
+      "phases": [
+        [
+          1,
+          0.9,
+          0.84,
+          0.12,
+          0.045,
+          0.82,
+          0.085,
+          0.1
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "tune-code-2048",
+      "split": "tune",
+      "domain": "code",
+      "context": 2048,
+      "output_tokens": 256,
+      "prompt": "Write a complete C string-key hash table with insert, find, delete and a test main. Output only C code.",
+      "phases": [
+        [
+          1,
+          0.9,
+          0.84,
+          0.12,
+          0.045,
+          0.82,
+          0.085,
+          0.1
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "tune-prose-256",
+      "split": "tune",
+      "domain": "prose",
+      "context": 256,
+      "output_tokens": 256,
+      "prompt": "Describe a rainy railway station from the perspective of a lost umbrella. Use varied concrete details and no repeated phrases.",
+      "phases": [
+        [
+          1,
+          0.3,
+          0.42,
+          0.22,
+          0.06,
+          0.95,
+          0.14,
+          0.16
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.08
+    },
+    {
+      "id": "tune-prose-2048",
+      "split": "tune",
+      "domain": "prose",
+      "context": 2048,
+      "output_tokens": 256,
+      "prompt": "Describe a rainy railway station from the perspective of a lost umbrella. Use varied concrete details and no repeated phrases.",
+      "phases": [
+        [
+          1,
+          0.3,
+          0.42,
+          0.22,
+          0.06,
+          0.95,
+          0.14,
+          0.16
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.08
+    },
+    {
+      "id": "tune-structured-256",
+      "split": "tune",
+      "domain": "structured",
+      "context": 256,
+      "output_tokens": 256,
+      "prompt": "Produce a JSON array of 20 fictional inventory items. Each object has sku, name, quantity and reorder_level. Output only JSON.",
+      "phases": [
+        [
+          0.45,
+          0.4,
+          0.5,
+          0.16,
+          0.05,
+          0.86,
+          0.09,
+          0.12
+        ],
+        [
+          1,
+          0.96,
+          0.93,
+          0.16,
+          0.05,
+          0.86,
+          0.09,
+          0.12
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "tune-structured-2048",
+      "split": "tune",
+      "domain": "structured",
+      "context": 2048,
+      "output_tokens": 256,
+      "prompt": "Produce a JSON array of 20 fictional inventory items. Each object has sku, name, quantity and reorder_level. Output only JSON.",
+      "phases": [
+        [
+          0.45,
+          0.4,
+          0.5,
+          0.16,
+          0.05,
+          0.86,
+          0.09,
+          0.12
+        ],
+        [
+          1,
+          0.96,
+          0.93,
+          0.16,
+          0.05,
+          0.86,
+          0.09,
+          0.12
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "heldout-code-256",
+      "split": "heldout",
+      "domain": "code",
+      "context": 256,
+      "output_tokens": 256,
+      "prompt": "Implement a Python LRU cache using a doubly linked list and a dictionary. Include get, put and unit tests. Output only code.",
+      "phases": [
+        [
+          0.6,
+          0.86,
+          0.8,
+          0.15,
+          0.05,
+          0.85,
+          0.1,
+          0.14
+        ],
+        [
+          1,
+          0.55,
+          0.58,
+          0.15,
+          0.05,
+          0.85,
+          0.1,
+          0.14
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "heldout-code-2048",
+      "split": "heldout",
+      "domain": "code",
+      "context": 2048,
+      "output_tokens": 256,
+      "prompt": "Implement a Python LRU cache using a doubly linked list and a dictionary. Include get, put and unit tests. Output only code.",
+      "phases": [
+        [
+          0.6,
+          0.86,
+          0.8,
+          0.15,
+          0.05,
+          0.85,
+          0.1,
+          0.14
+        ],
+        [
+          1,
+          0.55,
+          0.58,
+          0.15,
+          0.05,
+          0.85,
+          0.1,
+          0.14
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "heldout-prose-256",
+      "split": "heldout",
+      "domain": "prose",
+      "context": 256,
+      "output_tokens": 256,
+      "prompt": "Write a scene in which a cartographer realizes the coast has changed overnight. Avoid repeated images and explain nothing outside the scene.",
+      "phases": [
+        [
+          0.55,
+          0.26,
+          0.38,
+          0.25,
+          0.065,
+          1.0,
+          0.15,
+          0.18
+        ],
+        [
+          1,
+          0.68,
+          0.64,
+          0.25,
+          0.065,
+          1.0,
+          0.15,
+          0.18
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.08
+    },
+    {
+      "id": "heldout-prose-2048",
+      "split": "heldout",
+      "domain": "prose",
+      "context": 2048,
+      "output_tokens": 256,
+      "prompt": "Write a scene in which a cartographer realizes the coast has changed overnight. Avoid repeated images and explain nothing outside the scene.",
+      "phases": [
+        [
+          0.55,
+          0.26,
+          0.38,
+          0.25,
+          0.065,
+          1.0,
+          0.15,
+          0.18
+        ],
+        [
+          1,
+          0.68,
+          0.64,
+          0.25,
+          0.065,
+          1.0,
+          0.15,
+          0.18
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.08
+    },
+    {
+      "id": "heldout-structured-256",
+      "split": "heldout",
+      "domain": "structured",
+      "context": 256,
+      "output_tokens": 256,
+      "prompt": "Return 20 newline-delimited JSON tool calls for a fictional calendar. Alternate create_event and update_event, with realistic arguments. Output only JSON lines.",
+      "phases": [
+        [
+          0.3,
+          0.94,
+          0.89,
+          0.19,
+          0.04,
+          0.88,
+          0.11,
+          0.13
+        ],
+        [
+          0.6,
+          0.22,
+          0.3,
+          0.19,
+          0.04,
+          0.88,
+          0.11,
+          0.13
+        ],
+        [
+          1,
+          0.92,
+          0.9,
+          0.19,
+          0.04,
+          0.88,
+          0.11,
+          0.13
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    },
+    {
+      "id": "heldout-structured-2048",
+      "split": "heldout",
+      "domain": "structured",
+      "context": 2048,
+      "output_tokens": 256,
+      "prompt": "Return 20 newline-delimited JSON tool calls for a fictional calendar. Alternate create_event and update_event, with realistic arguments. Output only JSON lines.",
+      "phases": [
+        [
+          0.3,
+          0.94,
+          0.89,
+          0.19,
+          0.04,
+          0.88,
+          0.11,
+          0.13
+        ],
+        [
+          0.6,
+          0.22,
+          0.3,
+          0.19,
+          0.04,
+          0.88,
+          0.11,
+          0.13
+        ],
+        [
+          1,
+          0.92,
+          0.9,
+          0.19,
+          0.04,
+          0.88,
+          0.11,
+          0.13
+        ]
+      ],
+      "target_ms": 20.0,
+      "target_context_slope": 0.3,
+      "verify_context_slope": 0.7,
+      "noise_sigma": 0.08,
+      "proposal_none_probability": 0.02
+    }
+  ],
+  "validation_gate": "Do not integrate a policy into model inference without model-level correctness and interleaved speed validation."
+}
