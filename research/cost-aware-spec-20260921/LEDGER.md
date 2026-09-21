@@ -54,3 +54,7 @@ Installed ordinary-only model smoke: 256-token raw code prefix, 16 generated tok
 Audit caveat: `DS4_DSPARK_VERIFY_CAP` limits final proposals, but the default confidence-lazy drafting loop still iterates to the full draft block until confidence stops it. A shorter verification cap need not reduce draft-stage cost. The initial synthetic suite's depth-linear draft-cost assumption is therefore a generic hypothetical, not an exact DSpark cost model. A flat draft-cost sensitivity experiment is required before interpreting depth-selection gains.
 
 Next bounded step: calibrate decay and exploration interval on the frozen tuning split only (16 configurations). Select by mean normalized elapsed time with a penalty if a scenario mean exceeds a 5% ordinary-decode regression. Then freeze configuration before held-out evaluation. Also measure host timer/policy overhead and GPU timing-boundary overhead separately.
+
+## 20:58 UTC: tuning configuration frozen
+
+The 16-point tuning grid selected decay 0.95, exploration every 32 committed tokens, and a 3% improvement margin, with context buckets enabled. `candidate-config.json` records this choice before held-out execution. All simulated costs, domains and seeds remain as preregistered. This is calibration of H1, not proof of a deployable policy. Next: held-out paired comparisons and diagnostic stress cases; do not retune on their results.

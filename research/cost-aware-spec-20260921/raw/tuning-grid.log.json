@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/tune.py"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:57:30.387761+00:00",
+  "elapsed_seconds": 2.3037623330019414,
+  "exit_code": 0,
+  "timed_out": false
+}
