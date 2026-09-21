@@ -1,0 +1,74 @@
+[
+  {
+    "run": "model-repeat1-code.system",
+    "io_mb": 494831.5499999998,
+    "swapins": 0,
+    "swapouts": 10620,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 82%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat1-prose.system",
+    "io_mb": 494055.1599999997,
+    "swapins": 0,
+    "swapouts": 2880,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 82%"
+  },
+  {
+    "run": "model-repeat1-structured.system",
+    "io_mb": 495899.93000000017,
+    "swapins": 0,
+    "swapouts": 2336,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 82%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat2-code.system",
+    "io_mb": 481873.9400000004,
+    "swapins": 0,
+    "swapouts": 1904,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat2-prose.system",
+    "io_mb": 486991.45999999996,
+    "swapins": 0,
+    "swapouts": 2280,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat2-structured.system",
+    "io_mb": 494020.0599999996,
+    "swapins": 0,
+    "swapouts": 1928,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat3-code.system",
+    "io_mb": 478165.86000000034,
+    "swapins": 0,
+    "swapouts": 1448,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat3-prose.system",
+    "io_mb": 485041.76999999955,
+    "swapins": 0,
+    "swapouts": 3472,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  },
+  {
+    "run": "model-repeat3-structured.system",
+    "io_mb": 489158.0700000003,
+    "swapins": 0,
+    "swapouts": 2320,
+    "before_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%",
+    "after_pressure": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%"
+  }
+]

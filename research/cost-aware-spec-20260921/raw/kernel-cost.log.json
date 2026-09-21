@@ -1,0 +1,11 @@
+{
+  "command": [
+    "research/cost-aware-spec-20260921/kernel_cost_bench"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:11:37.920519+00:00",
+  "elapsed_seconds": 15.277816332993098,
+  "exit_code": 0,
+  "timed_out": false,
+  "interrupted_signal": 0
+}

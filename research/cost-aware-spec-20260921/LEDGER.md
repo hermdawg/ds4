@@ -82,3 +82,19 @@ Read primary prior art for NVIDIA transfer; links and scope in SOURCES.md. vLLM 
 ## 21:09 UTC: experiment-runner hardening
 
 Found and fixed a timeout trap during self-review: nested process runners create separate process groups. Killing only the outer group could leave an inner GPU process running. `run_bounded.py` now catches termination/interruption and propagates it to its child's group, with a kill fallback. Added direct and nested timeout tests that confirm child PIDs are gone. Also made final analysis refuse an incomplete ordinary-model suite rather than silently summarize partial runs. An earlier interim analysis was started while that suite was still running; it is not final evidence and will be overwritten only after all 18 rows complete.
+
+## 21:12 UTC: additional instrumentation validation planned
+
+The ordinary model suite completed all nine jobs (18 measured frontiers) in 884.6 seconds with per-job timeouts. Next, run eight ordinary streamed code continuations with existing expert timing summary off/on in ABBA/BAAB order. Fixed 256 input and 128 output tokens, identical quant/cache/context settings. Compare generated text, whole generation time, and existing disk/cache timing counters. This measures existing SSD instrumentation overhead and disk involvement, not speculative-policy overhead or resident GPU inference.
+
+GPU microbenchmark is running after the model suite, never alongside it. Its enqueue-only stage timestamps explicitly measure CPU submission, not GPU execution. Per-stage waits measure elapsed GPU-complete stages but change submission structure; outer complete-cycle timing is the low-overhead control.
+
+## 21:13-21:15 UTC: model and timer findings
+
+All 18 ordinary baseline rows completed: median TPS (tokens/s/request) 9.66/9.08 code, 9.31/9.44 prose, and 9.63/8.97 structured at 256/2048 input tokens. Three runs per cell. Full min/max and standard deviations are in model-summary.csv. The synthetic 20 ms target cost is NOT calibrated from this SSD-streamed model.
+
+System counters show substantial disk traffic (467-484 GiB per two-frontier process, including prefill and all system I/O). System swap usage increased from 2.00 to 458.06 MiB across the model suite; per-job swapins stayed zero, while swapouts rose. This is evidence of paging/background-state effects, not a clean resident-compute experiment. OS counters cannot attribute all activity to the model. No thermal warning was recorded by pmset; that is not a GPU temperature measurement.
+
+GPU projection timing passed the independent dot-product reference and exact output comparisons among instrumentation modes. Representative median outer/per-stage-wait times: 1024-wide, 1 row: 0.192/0.491 ms; 4096-wide, 6 rows: 0.461/0.772 ms. These are arbitrary three-projection kernels, not draft/verifier/model stages. Enqueue timers do not measure execution. Host-only policy plus two timers was about 38 ns/cycle in this isolated build, comparable to two timers alone, and is not a substitute for end-to-end instrumentation overhead.
+
+Final simulator checks also replay H1's frozen first-seed runs exactly after adding the action mask. Timeout tests passed including a nested runner and child cleanup.

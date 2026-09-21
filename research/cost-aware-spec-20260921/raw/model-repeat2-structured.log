@@ -1,0 +1,29 @@
+ds4: Metal device Apple M5 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API enabled for Tensor kernels
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=on
+ds4: Metal SSD streaming mode enabled; full model residency and warmup are skipped
+ds4: metal SSD streaming cache target 8.00 GiB; effective 8.00 GiB = 3.38 GiB prefill headroom + 4.62 GiB dynamic cache (701 experts, 6.75 MiB each)
+ds4: Metal SSD static weights locked 8.20 GiB; pageable 0.00 GiB
+ds4: SSD streaming initial metal model map (1 spans, 0.99 GiB tensor span)
+ds4: metal backend initialized for graph diagnostics
+ds4: memory: KV 0.07 GiB (raw 0.04 + compressed 0.03) + buffers 0.00 GiB + resident model 8.20 GiB + expert cache 4.62 GiB + prefill expert reserve 3.38 GiB = 16.27 GiB planned
+ds4: memory detail: ctx=4096 prefill_cap=256 raw_kv_rows=512 compressed_kv_rows=1026 backend=metal
+ds4-bench: context buffers 77.36 MiB (ctx=4096, backend=metal, prefill_chunk=256, raw_kv_rows=512, compressed_kv_rows=1026)
+      101.40 real         7.49 user       160.22 sys
+         13954269184  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              864499  page reclaims
+                 295  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              121178  voluntary context switches
+             1374657  involuntary context switches
+        500784178942  instructions retired
+        509860164640  cycles elapsed
+          5552859696  peak memory footprint

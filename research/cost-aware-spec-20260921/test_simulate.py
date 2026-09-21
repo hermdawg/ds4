@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import copy
+import csv
 import json
 import math
 import os
@@ -88,5 +89,16 @@ class Tests(unittest.TestCase):
                 for d in range(1,6):
                     self.assertGreaterEqual(rows[d]['accepted'],rows[d-1]['accepted'])
                     self.assertLessEqual(rows[d]['accepted'],rows[d-1]['accepted']+1)
+
+    def test_full_action_mask_replays_frozen_h1(self):
+        suite=json.loads((ROOT/'suite.json').read_text())
+        cases={c['id']:c for c in suite['cases']}
+        with (ROOT/'raw/tune-h1.csv').open() as f:
+            golden=[r for r in csv.DictReader(f) if r['seed']=='0']
+        for old in golden:
+            case=cases[old['case']]
+            result,_=run_policy(case,0,old['mode'],old['policy'],self.config)
+            self.assertEqual(result['total_ms'],float(old['total_ms']))
+            self.assertEqual(result['cycles'],int(old['cycles']))
 
 if __name__=='__main__': unittest.main(verbosity=2)

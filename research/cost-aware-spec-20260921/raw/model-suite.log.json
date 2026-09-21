@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/run_model_baseline.py"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T20:56:15.043543+00:00",
+  "elapsed_seconds": 884.6221528330352,
+  "exit_code": 0,
+  "timed_out": false
+}

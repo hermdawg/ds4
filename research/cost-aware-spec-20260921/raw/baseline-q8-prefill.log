@@ -1,0 +1,45 @@
+ds4: Metal device Apple M5 Max, 64.00 GiB RAM
+ds4: Metal 4 tensor API enabled for Tensor kernels
+ds4: drift-patch flags hc_stable=on norm_unify=on kv_raw_f32=off rope_exp2_log2=off math_safe=off tensor_matmul=on
+ds4: Metal model views created in 0.029 ms, residency requested in 0.065 ms, warmup 3.727 ms (mapped 0.03 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 1 overlapping shared buffers
+ds4: Metal model views created in 0.019 ms, residency requested in 0.029 ms, warmup 0.563 ms (mapped 0.03 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 2 overlapping shared buffers
+ds4: Metal model views created in 0.009 ms, residency requested in 0.017 ms, warmup 0.182 ms (mapped 0.03 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 3 overlapping shared buffers
+ds4: Metal model views created in 0.006 ms, residency requested in 0.019 ms, warmup 0.191 ms (mapped 0.03 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 4 overlapping shared buffers
+ds4: Metal model views created in 0.006 ms, residency requested in 0.021 ms, warmup 0.748 ms (mapped 0.25 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 5 overlapping shared buffers
+ds4: Metal model views created in 0.011 ms, residency requested in 0.033 ms, warmup 0.182 ms (mapped 0.25 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 6 overlapping shared buffers
+ds4: Metal model views created in 0.013 ms, residency requested in 0.052 ms, warmup 0.205 ms (mapped 0.69 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 7 overlapping shared buffers
+ds4: Metal model views created in 0.011 ms, residency requested in 0.078 ms, warmup 0.211 ms (mapped 0.69 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 8 overlapping shared buffers
+ds4: Metal model views created in 0.008 ms, residency requested in 0.045 ms, warmup 0.373 ms (mapped 0.69 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 9 overlapping shared buffers
+ds4: Metal model views created in 0.014 ms, residency requested in 0.115 ms, warmup 0.236 ms (mapped 0.69 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 10 overlapping shared buffers
+ds4: Metal model views created in 0.015 ms, residency requested in 0.121 ms, warmup 0.538 ms (mapped 0.69 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 11 overlapping shared buffers
+ds4: Metal model views created in 0.031 ms, residency requested in 0.933 ms, warmup 0.638 ms (mapped 53.12 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 12 overlapping shared buffers
+ds4: Metal model views created in 0.020 ms, residency requested in 1.427 ms, warmup 0.755 ms (mapped 31.88 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 13 overlapping shared buffers
+ds4: Metal model views created in 0.034 ms, residency requested in 3.483 ms, warmup 0.263 ms (mapped 170.00 MiB from offset 0.00 MiB)
+ds4: Metal mapped mmaped model as 14 overlapping shared buffers
+PASS Q8 D=32 O=1 T=32 exact paired outputs, guards intact
+PASS Q8 D=64 O=48 T=33 exact paired outputs, guards intact
+PASS Q8 D=96 O=63 T=63 exact paired outputs, guards intact
+PASS Q8 D=128 O=65 T=64 exact paired outputs, guards intact
+PASS Q8 D=2560 O=48 T=1 exact paired outputs, guards intact
+PASS Q8 D=2560 O=48 T=2 exact paired outputs, guards intact
+PASS Q8 D=2560 O=128 T=8 exact paired outputs, guards intact
+PASS Q8 D=2560 O=128 T=16 exact paired outputs, guards intact
+PASS Q8 D=2560 O=128 T=17 exact paired outputs, guards intact
+PASS Q8 D=2560 O=128 T=31 exact paired outputs, guards intact
+PASS Q8 D=2560 O=128 T=32 exact paired outputs, guards intact
+PASS Q8 D=2560 O=10240 T=128 exact paired outputs, guards intact
+PASS Q8 D=6144 O=2560 T=65 exact paired outputs, guards intact
+PASS Q8 D=2560 O=32768 T=32 exact paired outputs, guards intact
