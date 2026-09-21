@@ -1,0 +1,59 @@
+{
+  "instrumentation": false,
+  "before": {
+    "utc": "2026-09-21T21:12:59.408933+00:00",
+    "vm_stat": {
+      "returncode": 0,
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   219969.\nPages active:                                1365782.\nPages inactive:                              1870873.\nPages speculative:                             17747.\nPages throttled:                                   0.\nPages wired down:                             290792.\nPages purgeable:                                9733.\n\"Translation faults\":                     3252643897.\nPages copy-on-write:                       254130608.\nPages zero filled:                        2708157231.\nPages reactivated:                           8021535.\nPages purged:                                9559398.\nFile-backed pages:                           2244915.\nAnonymous pages:                             1009487.\nPages stored in compressor:                   833190.\nPages occupied by compressor:                 368276.\nDecompressions:                              1692723.\nCompressions:                                3251029.\nPageins:                                   352487172.\nPageouts:                                     117102.\nSwapins:                                         636.\nSwapouts:                                      29828.\nPages tagged:                                 140963.\nPages tagged resident:                         98633.\nPages tagged compressed:                       42330.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 5145.\nPages tag-storage free:                          464.\nPages tag-storage non-tag pageable:           125454.\nPages tag-storage non-tag wired:                   9.\nBytes of compressed tags:                    5975808.\nTagged compressions:                           88406.\nTagged decompressions:                         34438.\n",
+      "stderr": ""
+    },
+    "swap": {
+      "returncode": 0,
+      "stdout": "vm.swapusage: total = 1024.00M  used = 458.06M  free = 565.94M  (encrypted)\n",
+      "stderr": ""
+    },
+    "memory_pressure": {
+      "returncode": 0,
+      "stdout": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%\n",
+      "stderr": ""
+    },
+    "disk": {
+      "returncode": 0,
+      "stdout": "              disk0 \n    KB/t xfrs   MB \n   81.54 91517714 7287894.12 \n",
+      "stderr": ""
+    },
+    "thermal": {
+      "returncode": 0,
+      "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+      "stderr": ""
+    }
+  },
+  "after": {
+    "utc": "2026-09-21T21:13:16.887658+00:00",
+    "vm_stat": {
+      "returncode": 0,
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   332410.\nPages active:                                1298777.\nPages inactive:                              1830162.\nPages speculative:                              1265.\nPages throttled:                                   0.\nPages wired down:                             302709.\nPages purgeable:                                 164.\n\"Translation faults\":                     3253704871.\nPages copy-on-write:                       254148694.\nPages zero filled:                        2708577930.\nPages reactivated:                           8030224.\nPages purged:                                9566769.\nFile-backed pages:                           2128513.\nAnonymous pages:                             1001691.\nPages stored in compressor:                   834049.\nPages occupied by compressor:                 368334.\nDecompressions:                              1692885.\nCompressions:                                3252139.\nPageins:                                   357272969.\nPageouts:                                     118267.\nSwapins:                                         636.\nSwapouts:                                      30036.\nPages tagged:                                 140693.\nPages tagged resident:                         98368.\nPages tagged compressed:                       42325.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 5145.\nPages tag-storage free:                          310.\nPages tag-storage non-tag pageable:           125608.\nPages tag-storage non-tag wired:                   9.\nBytes of compressed tags:                    5974208.\nTagged compressions:                           88433.\nTagged decompressions:                         34470.\n",
+      "stderr": ""
+    },
+    "swap": {
+      "returncode": 0,
+      "stdout": "vm.swapusage: total = 1024.00M  used = 461.31M  free = 562.69M  (encrypted)\n",
+      "stderr": ""
+    },
+    "memory_pressure": {
+      "returncode": 0,
+      "stdout": "The system has 68719476736 (4194304 pages with a page size of 16384).\nSystem-wide memory free percentage: 83%\n",
+      "stderr": ""
+    },
+    "disk": {
+      "returncode": 0,
+      "stdout": "              disk0 \n    KB/t xfrs   MB \n   82.25 91717178 7366770.55 \n",
+      "stderr": ""
+    },
+    "thermal": {
+      "returncode": 0,
+      "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+      "stderr": ""
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Existing SSD expert timing summary on ordinary decoding only; not new speculative-stage instrumentation.",
+  "off_tps": [
+    11.33,
+    11.04,
+    11.22,
+    11.45
+  ],
+  "on_tps": [
+    11.31,
+    10.59,
+    11.55,
+    10.93
+  ],
+  "off_median_tps": 11.275,
+  "on_median_tps": 11.120000000000001,
+  "paired_time_ratios": [
+    1.0017683465959328,
+    1.0424929178470255,
+    0.9714285714285714,
+    1.0475754803293686
+  ],
+  "median_paired_time_ratio": 1.0221306322214792,
+  "greedy_output_identical": true,
+  "output_sha256": "5892bb0f9ad057f76cfc257d765c7e3bbeb7b88666ed683d1105957baf517765"
+}

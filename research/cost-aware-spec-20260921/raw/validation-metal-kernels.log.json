@@ -1,0 +1,12 @@
+{
+  "command": [
+    "./ds4_test",
+    "--metal-kernels"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:15:59.720032+00:00",
+  "elapsed_seconds": 0.768213959003333,
+  "exit_code": 0,
+  "timed_out": false,
+  "interrupted_signal": 0
+}

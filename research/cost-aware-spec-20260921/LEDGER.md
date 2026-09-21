@@ -98,3 +98,33 @@ System counters show substantial disk traffic (467-484 GiB per two-frontier proc
 GPU projection timing passed the independent dot-product reference and exact output comparisons among instrumentation modes. Representative median outer/per-stage-wait times: 1024-wide, 1 row: 0.192/0.491 ms; 4096-wide, 6 rows: 0.461/0.772 ms. These are arbitrary three-projection kernels, not draft/verifier/model stages. Enqueue timers do not measure execution. Host-only policy plus two timers was about 38 ns/cycle in this isolated build, comparable to two timers alone, and is not a substitute for end-to-end instrumentation overhead.
 
 Final simulator checks also replay H1's frozen first-seed runs exactly after adding the action mask. Timeout tests passed including a nested runner and child cleanup.
+
+## 21:16-21:28 UTC: final validation and decision
+
+All eight existing-SSD-instrumentation controls completed in ABBA/BAAB order.
+Greedy generated text matched exactly across all runs (SHA-256 recorded in
+instrumentation-summary.json). Median paired time-on/time-off was 1.0221, with
+pairs 1.0018, 1.0425, 0.9714 and 1.0476. This is a noisy ~2.2% overhead estimate
+for existing counters during ordinary streamed decoding, not a measurement of
+new speculative-stage timers. Final Metal kernel and server unit groups passed.
+No experiment GPU processes remained at final inspection.
+
+Published the local self-contained report and reproducible commands in this
+research directory. Report structure, all 11 relative file links, frozen suite
+hash and final validation metadata were checked. Browser visual preview was
+blocked by the browser's local-file URL policy; no workaround was attempted.
+The report's visual layout was therefore not browser-verified.
+
+Decision: retain the research harness and negative results; leave production
+source, acceptance rules and defaults unchanged. The primary H1 resident
+simulation regressed. H2 did not show a reliable resident gain on fresh seeds
+(0.9943x default; seed-bootstrap interval 0.9843-1.0042), and both variants have
+workload regressions. A synthetic separate-seed average gain does not establish
+local or NVIDIA model throughput gains.
+
+The campaign began at 20:44:55 UTC. It ended early after the bounded fallback
+study because meaningful end-to-end speculative validation requires a matched
+drafter that is not installed. No checkpoints were downloaded and no training jobs were launched. More invented-cost trials cannot remove that blocker. Next:
+a resident matched target/drafter pair, measured ordinary/cap-3/cap-5 baselines,
+then a cost/confidence policy with exact state/output checks and concurrent
+NVIDIA serving workloads. No background follow-up was scheduled.

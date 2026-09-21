@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/profile_streaming.py"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:12:59.352632+00:00",
+  "elapsed_seconds": 141.274512709002,
+  "exit_code": 0,
+  "timed_out": false,
+  "interrupted_signal": 0
+}

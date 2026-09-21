@@ -1,0 +1,12 @@
+{
+  "command": [
+    "./ds4_test",
+    "--server"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:16:00.575599+00:00",
+  "elapsed_seconds": 0.20715387497330084,
+  "exit_code": 0,
+  "timed_out": false,
+  "interrupted_signal": 0
+}

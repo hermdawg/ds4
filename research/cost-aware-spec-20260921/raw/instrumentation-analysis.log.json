@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/analyze_instrumentation.py"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:15:59.558457+00:00",
+  "elapsed_seconds": 0.08936458401149139,
+  "exit_code": 0,
+  "timed_out": false,
+  "interrupted_signal": 0
+}
