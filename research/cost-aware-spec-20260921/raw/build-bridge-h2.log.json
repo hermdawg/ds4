@@ -1,0 +1,11 @@
+{
+  "command": [
+    "sh",
+    "research/cost-aware-spec-20260921/build.sh"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:01:45.668521+00:00",
+  "elapsed_seconds": 16.831277124991175,
+  "exit_code": 0,
+  "timed_out": false
+}

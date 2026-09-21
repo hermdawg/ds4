@@ -73,11 +73,27 @@ static void test_recovery(void) {
     for (unsigned d=0; d<6; d++) assert(counts[d]>0);
 }
 
+static void test_legal_actions(void) {
+    spec_policy p;
+    spec_policy_init(&p,.8,8,.03,false);
+    spec_policy_actions(&p,32);
+    assert(p.action_mask == 33);
+    for (unsigned i=0; i<1000; i++) {
+        unsigned d=spec_policy_choose(&p,256,1000,5);
+        assert(d==0 || d==5);
+        assert(spec_policy_observe(&p,256,d,d ? 30 : 10,d+1));
+    }
+    assert(!spec_policy_observe(&p,256,3,10,1));
+    spec_policy_actions(&p,0);
+    assert(spec_policy_choose(&p,256,1000,5)==0);
+}
+
 int main(void) {
     test_ratio_and_input();
     test_weighted_ratio();
     test_limits_context_reset();
     test_recovery();
+    test_legal_actions();
     puts("research policy: ratio, invalid measurements, limits, context, reset, recovery PASS");
     return 0;
 }

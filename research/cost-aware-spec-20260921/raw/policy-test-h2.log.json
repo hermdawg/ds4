@@ -1,0 +1,10 @@
+{
+  "command": [
+    "research/cost-aware-spec-20260921/policy_test"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:02:02.947314+00:00",
+  "elapsed_seconds": 0.515657750016544,
+  "exit_code": 0,
+  "timed_out": false
+}

@@ -1,0 +1,7 @@
+{
+  "decay": 0.95,
+  "probe_tokens": 32,
+  "margin": 0.03,
+  "context_buckets": true,
+  "action_mask": 41
+}

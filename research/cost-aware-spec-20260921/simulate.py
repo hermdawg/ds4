@@ -28,6 +28,7 @@ for name, args, result in [
     ('research_default_pause', [C.c_void_p], C.c_uint),
     ('research_policy_new', [C.c_double, C.c_uint, C.c_double, C.c_int], C.c_void_p),
     ('research_policy_free', [C.c_void_p], None),
+    ('research_policy_actions', [C.c_void_p, C.c_uint], None),
     ('research_policy_choose', [C.c_void_p, C.c_uint, C.c_uint, C.c_uint], C.c_uint),
     ('research_policy_observe', [C.c_void_p, C.c_uint, C.c_uint, C.c_double, C.c_uint], C.c_int),
 ]:
@@ -94,6 +95,8 @@ def run_policy(case, seed, mode, policy, config, potential=None, trace=False):
         os.environ[COST_ENV[2]] = '4'
     default = LIB.research_default_new(mode == 'resident_seed_batch') if policy in ('default', 'existing_cost_gate') else None
     candidate = LIB.research_policy_new(config['decay'], config['probe_tokens'], config['margin'], config['context_buckets']) if policy == 'candidate' else None
+    if candidate:
+        LIB.research_policy_actions(candidate, config.get('action_mask', 63))
     pos, cycles, draft_cycles, rejects, proposed, accepted = 0, 0, 0, 0, 0, 0
     last_target = 0.0
     totals = dict(target_ms=0., draft_ms=0., verify_ms=0., recovery_ms=0., total_ms=0.)

@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Tune on preregistered tuning seeds only. Holdout stays unread by this loop."""
+import argparse
 import itertools
 import json
 import math
 import statistics
 from simulate import ROOT, potential_cycles, run_policy, write_csv
+parser=argparse.ArgumentParser()
+parser.add_argument('--h2',action='store_true')
+args=parser.parse_args()
 suite=json.loads((ROOT/'suite.json').read_text())
 cases=[c for c in suite['cases'] if c['split']=='tune']
 cache=[]
@@ -16,8 +20,9 @@ for mode in suite['simulated_execution_modes']:
             default,_=run_policy(case,seed,mode,'default',{},pot)
             cache.append((case,seed,mode,pot,ordinary['total_ms'],default['total_ms']))
 rows=[]
-for decay,probe in itertools.product([0.0,.5,.8,.95],[16,32,64,128]):
-    config=dict(decay=decay,probe_tokens=probe,margin=.03,context_buckets=True)
+grid=itertools.product([.5,.8,.95],[16,32,64],[63,41,33]) if args.h2 else itertools.product([0.0,.5,.8,.95],[16,32,64,128],[63])
+for decay,probe,mask in grid:
+    config=dict(decay=decay,probe_tokens=probe,margin=.03,context_buckets=True,action_mask=mask)
     ratios,vs_default,groups=[],[],{}
     for case,seed,mode,pot,ordinary,default in cache:
         result,_=run_policy(case,seed,mode,'candidate',config,pot)
@@ -35,8 +40,9 @@ for decay,probe in itertools.product([0.0,.5,.8,.95],[16,32,64,128]):
         selection_score=score)
     rows.append(row)
     print(json.dumps(row),flush=True)
-write_csv(ROOT/'raw/tuning-grid.csv',rows)
+suffix='-h2' if args.h2 else ''
+write_csv(ROOT/f'raw/tuning-grid{suffix}.csv',rows)
 best=min(rows,key=lambda r:r['selection_score'])
-config={k:best[k] for k in ['decay','probe_tokens','margin','context_buckets']}
-(ROOT/'candidate-config.json').write_text(json.dumps(config,indent=2)+'\n')
+config={k:best[k] for k in ['decay','probe_tokens','margin','context_buckets','action_mask']}
+(ROOT/f'candidate-config{suffix}.json').write_text(json.dumps(config,indent=2)+'\n')
 print('SELECTED '+json.dumps(config),flush=True)

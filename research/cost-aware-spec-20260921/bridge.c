@@ -44,6 +44,9 @@ void *research_policy_new(double decay, unsigned probe_tokens,
     return p;
 }
 void research_policy_free(void *state) { free(state); }
+void research_policy_actions(void *state, unsigned mask) {
+    spec_policy_actions(state, mask);
+}
 unsigned research_policy_choose(void *state, unsigned context, unsigned remaining,
                                 unsigned max_depth) {
     return spec_policy_choose(state, context, remaining, max_depth);

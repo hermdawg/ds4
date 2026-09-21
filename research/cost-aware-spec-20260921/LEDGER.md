@@ -64,3 +64,9 @@ The 16-point tuning grid selected decay 0.95, exploration every 32 committed tok
 H1 held-out resident simulation: 1.1883x ordinary vs 1.2064x for current default, about a 1.5% geometric regression against default. This falsifies a robust resident gain in the primary assumed workload suite. No production integration. See raw heldout-h1 CSVs, stage traces and summary.
 
 H2 is preregistered in EXPERIMENTS.md: reduce exploration to a useful subset of caps, motivated by the existing cap-3 seed-batch threshold and H1 TUNING results. Try masks {0..5}, {0,3,5}, {0,5}, tune on original tuning split only, commit config before evaluation. Any re-use of original held-out workloads is labeled exploratory. Fresh seeds test stochastic sensitivity. A broader frozen stress matrix tests flat drafting costs, context transitions, noise, budget length, verification costs and acceptance transitions.
+
+## 21:03-21:04 UTC: H2 calibration frozen
+
+H2 tuning selected caps {0,3,5}, decay 0.95, exploration interval 32, margin 3%. The candidate's API now accepts a legal-action mask and always retains ordinary decoding. H1's full-mask behavior remains available. Sanitizer and simulator checks passed after this bounded change. Configuration is frozen in candidate-config-h2.json before evaluation.
+
+A standalone GPU timing microbenchmark initially failed to link because Metal expects `ds4_log_is_tty(FILE *)` from the engine. Added the same correctly typed no-color stub used by existing isolated GPU tests; standalone build then passed. This benchmark will compare ordinary outer timing, host enqueue timers (not GPU stage time), and per-stage synchronization, with identical outputs and an independent Q8 dot-product reference. It will run only after the real-model suite releases the GPU.
