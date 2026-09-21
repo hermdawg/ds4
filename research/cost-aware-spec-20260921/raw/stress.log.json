@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "research/cost-aware-spec-20260921/stress.py"
+  ],
+  "cwd": "/Users/herman/code/open-source/ds4-cost-aware-spec",
+  "started": "2026-09-21T21:05:19.013758+00:00",
+  "elapsed_seconds": 44.42226712498814,
+  "exit_code": 0,
+  "timed_out": false
+}

@@ -23,23 +23,45 @@ def main():
     started = datetime.datetime.now(datetime.timezone.utc).isoformat()
     begin = time.monotonic()
     timed_out = False
+    interrupted = 0
+    code = 125
     with args.output.open('w') as log:
         child = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT,
                                  start_new_session=True)
-        try:
-            code = child.wait(timeout=args.timeout)
-        except subprocess.TimeoutExpired:
-            timed_out = True
-            os.killpg(child.pid, signal.SIGTERM)
+        def stop_group():
+            if child.poll() is not None:
+                return
+            try:
+                os.killpg(child.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                return
             try:
                 child.wait(timeout=5)
             except subprocess.TimeoutExpired:
                 os.killpg(child.pid, signal.SIGKILL)
                 child.wait()
+
+        def interrupted_handler(signum, _frame):
+            nonlocal interrupted
+            interrupted = signum
+            raise InterruptedError('runner interrupted')
+
+        # Outer campaign timeouts must also stop this runner's child session.
+        # Otherwise a nested start_new_session child could outlive its parent.
+        signal.signal(signal.SIGTERM, interrupted_handler)
+        signal.signal(signal.SIGINT, interrupted_handler)
+        try:
+            code = child.wait(timeout=args.timeout)
+        except subprocess.TimeoutExpired:
+            timed_out = True
             code = 124
+            stop_group()
+        except InterruptedError:
+            code = 128 + interrupted
+            stop_group()
     metadata = dict(command=command, cwd=os.getcwd(), started=started,
                     elapsed_seconds=time.monotonic()-begin, exit_code=code,
-                    timed_out=timed_out)
+                    timed_out=timed_out, interrupted_signal=interrupted)
     args.output.with_suffix(args.output.suffix+'.json').write_text(
         json.dumps(metadata, indent=2)+'\n')
     print(json.dumps(metadata), flush=True)

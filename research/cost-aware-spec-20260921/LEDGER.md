@@ -70,3 +70,15 @@ H2 is preregistered in EXPERIMENTS.md: reduce exploration to a useful subset of 
 H2 tuning selected caps {0,3,5}, decay 0.95, exploration interval 32, margin 3%. The candidate's API now accepts a legal-action mask and always retains ordinary decoding. H1's full-mask behavior remains available. Sanitizer and simulator checks passed after this bounded change. Configuration is frozen in candidate-config-h2.json before evaluation.
 
 A standalone GPU timing microbenchmark initially failed to link because Metal expects `ds4_log_is_tty(FILE *)` from the engine. Added the same correctly typed no-color stub used by existing isolated GPU tests; standalone build then passed. This benchmark will compare ordinary outer timing, host enqueue timers (not GPU stage time), and per-stage synchronization, with identical outputs and an independent Q8 dot-product reference. It will run only after the real-model suite releases the GPU.
+
+## 21:05-21:08 UTC: sensitivity results
+
+H2 on the original held-out regimes (exploratory reuse): 1.2128x ordinary vs 1.2064x current default for resident batching, only about +0.5%. Fresh seeds reverse that advantage: H2/default 0.994x resident. In the separate-seed simulator H2/default is approximately 1.032x on fresh seeds. Flat draft costs reduce resident H2/default to 0.987x; high timing noise to 0.973x; abrupt acceptance collapse to 0.938x. Stable-easy cases also regress because exploration is unnecessary. Expensive verification and stable-hard cases still lose to ordinary decode despite improving over the default speculative scheduler. Keep production unchanged.
+
+Completed the preregistered 12-condition stress matrix, 40 seeds x six cases x two modes x ten policies per condition. All stage/cycle costs remain assumed. Raw rows retained; no tuning from these results. Wrote paired statistical analysis with seed-cluster bootstrap intervals and per-case regression counts. Intervals characterize the random seeds only; they do not imply representative real-model workloads.
+
+Read primary prior art for NVIDIA transfer; links and scope in SOURCES.md. vLLM already profiles separate draft/verifier costs and optimizes a global batch budget using confidence survival. This reinforces that single-request elapsed-cost adaptation is not novel by itself and does not establish serving throughput gains.
+
+## 21:09 UTC: experiment-runner hardening
+
+Found and fixed a timeout trap during self-review: nested process runners create separate process groups. Killing only the outer group could leave an inner GPU process running. `run_bounded.py` now catches termination/interruption and propagates it to its child's group, with a kill fallback. Added direct and nested timeout tests that confirm child PIDs are gone. Also made final analysis refuse an incomplete ordinary-model suite rather than silently summarize partial runs. An earlier interim analysis was started while that suite was still running; it is not final evidence and will be overwritten only after all 18 rows complete.
